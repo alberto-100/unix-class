@@ -3,8 +3,13 @@
 
 correct=0
 filesindirectory=$(ls -1 | wc -l)
-echo "How many files are in the current directory?"
-read guess
+
+function guess {
+    echo "How many files are in the current directory?"
+    read guess
+}
+
+guess
 
 while [[ $correct -eq 0 ]]
 do
@@ -12,9 +17,14 @@ do
     then
         correct=1
     else
-        echo "Incorrect guess, please try again."
-        echo "How many files are in the current directory?"
-        read guess
+        if [[ $guess -lt filesindirectory ]]
+        then
+            echo "Your guess is too low, please try again."
+        else
+            echo "Your guess is too high, please try again."
+        fi
+
+        guess
     fi
 done
 
