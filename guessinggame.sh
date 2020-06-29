@@ -2,7 +2,7 @@
 # File: guessinggame.sh
 
 correct=0
-filesindirectory=$(ls -1 | wc -l)
+filesindirectory=$(ls -1A | wc -l)
 intRE='^[0-9]+$'
 
 function guess {
